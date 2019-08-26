@@ -1,0 +1,35 @@
+<h1 class="dispaly-4">Add a Book</h1>
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <input type="hidden" name="Id" #Id="ngModel" [(ngModel)]="service.formData.Id" class="form-control">
+    <div class="form-row">
+    <div class="form-group col-md-4">
+        <input name="BookId" #BookId="ngModel" [(ngModel)]="service.formData.BookId" class="form-control" placeholder="Enter Code of Book" required >
+        <div *ngIf="BookId.invalid && BookId.touched" class="validation-error">This filed is mandatory</div>
+    </div>
+</div>
+    <div class="form-row">
+            <div class="form-group col-md-6">
+        <input name="BookName" #BookName="ngModel" [(ngModel)]="service.formData.BookName" class="form-control" placeholder="Enter Book Name" required >
+        <div *ngIf="BookName.invalid && BookName.touched" class="validation-error">This filed is mandatory</div>
+    </div>
+    
+            <div class="form-group col-md-6">
+        <input name="Author" #Author="ngModel" [(ngModel)]="service.formData.Author" class="form-control" placeholder="Enter Author of Book" required >
+        <div *ngIf="Author.invalid && Author.touched" class="validation-error">This filed is mandatory</div>
+    </div>
+</div>
+
+<div class="form-row">
+        <div class="form-group col-md-6">
+        <input name="Genre" #Genre="ngModel" [(ngModel)]="service.formData.Genre" class="form-control" placeholder="Enter Book Genre" required>
+        <div *ngIf="Genre.invalid && Genre.touched" class="validation-error">This filed is mandatory</div>
+    </div>
+    <div class="form-group col-md-6">
+        <input name="NoofCopies" #NoofCopies="ngModel" [(ngModel)]="service.formData.NoofCopies" class="form-control" placeholder="Enter no of Copies available" required>
+        <div *ngIf="NoofCopies.invalid && NoofCopies.touched" class="validation-error">This filed is mandatory</div>
+    </div>
+</div>
+    <div class="form-group">
+        <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block btn-info">Add</button>
+    </div>
+</form>

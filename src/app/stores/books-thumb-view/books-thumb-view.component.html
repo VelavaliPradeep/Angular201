@@ -1,0 +1,17 @@
+<h1>Below are the books that are available with us</h1>
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+<div class="row">
+        <div class="col-md-1">
+        </div>
+<div class="col-md-2 ng-scope" style="margin-top:12px;" *ngFor="let bk of list">
+    <div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px; height:350px;" align="center">
+        <!-- <img ng-src="images/1.jpg" class="img-responsive" src="/src/assets/Book.jpg"><br> -->
+        <h4 class="text-info ng-binding">{{bk.BookName}}</h4>
+        <h4 class="text-info ng-binding"> By: {{bk.Author}}</h4>
+        <h4 class="text-info ng-binding">{{bk.Genre}}</h4>
+        <h4 class="text-info ng-binding"> In stock : {{bk.NoofCopies}}</h4>
+        <input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success form-control" value="Add to Cart" ng-click="addtoCart(product)">
+    </div>
+</div>
+</div>
+</form>
