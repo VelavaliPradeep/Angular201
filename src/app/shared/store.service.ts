@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Store } from './store.model';
+import { Store, Cart } from './store.model';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
@@ -7,6 +7,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class StoreService {
   formData : Store;
+  formData1: Cart;
 
   constructor(private firestore: AngularFirestore) { }
 

@@ -21,7 +21,7 @@ export class StoreComponent implements OnInit {
     if(form != null)
     form.resetForm();
     this.service.formData = {
-      Id: null,
+      id: null,
       BookId: '',
       BookName: '',
       Author: '',
@@ -32,13 +32,13 @@ export class StoreComponent implements OnInit {
 
   onSubmit(form : NgForm){
     let data = Object.assign({},form.value);
-    delete data.Id;
-    if(form.value.Id == null){
+    delete data.id;
+    if(form.value.id == null){
       this.firestore.collection('books').add(data);
       this.toastr.success('Added Successfully','Book to Store');
     }
     else{
-      this.firestore.doc('books/'+ form.value.Id).update(data);
+      this.firestore.doc('books/'+ form.value.id).update(data);
       this.toastr.success('Updated Successfully','Book to Store');
     }
     this.resetForm(form);

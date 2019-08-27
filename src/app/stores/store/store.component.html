@@ -1,6 +1,6 @@
 <h1 class="dispaly-4">Add a Book</h1>
 <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
-    <input type="hidden" name="Id" #Id="ngModel" [(ngModel)]="service.formData.Id" class="form-control">
+    <input type="hidden" name="id" #id="ngModel" [(ngModel)]="service.formData.id" class="form-control">
     <div class="form-row">
     <div class="form-group col-md-4">
         <input name="BookId" #BookId="ngModel" [(ngModel)]="service.formData.BookId" class="form-control" placeholder="Enter Code of Book" required >

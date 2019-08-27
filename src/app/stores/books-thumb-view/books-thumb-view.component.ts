@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from 'src/app/shared/store.model';
+import { Store, Cart } from 'src/app/shared/store.model';
 import { ToastrService } from 'ngx-toastr';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { StoreService } from 'src/app/shared/store.service';
@@ -25,9 +25,9 @@ export class BooksThumbViewComponent implements OnInit {
     }); 
 }
 
-onSubmit(form : NgForm){
-  let data = form.value;
-  this.firestore.collection('cart').add(data);
-  this.toastr.success('Added Successfully','Book to Cart');
+onSubmit(bk: Store){
+  let data = this.service.formData = Object.assign({},bk);
+    this.firestore.collection('cart').add(data);
+    this.toastr.success('Added Successfully','Book to Store');
 }
 }
