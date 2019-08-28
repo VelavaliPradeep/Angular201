@@ -16,11 +16,17 @@ import { StoreService } from './shared/store.service';
 import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { BooksThumbViewComponent } from './stores/books-thumb-view/books-thumb-view.component';
+import { CartComponent } from './cart/cart.component';
+import { BooksTookbyUsersComponent } from './books-tookby-users/books-tookby-users.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Ng2OrderModule } from 'ng2-order-pipe';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'Stock', component: StoresComponent },
-  { path: 'Books', component: BooksThumbViewComponent}
+  { path: 'stock', component: StoresComponent },
+  { path: 'books', component: BooksThumbViewComponent},
+  { path: 'cart', component: CartComponent},
+  { path: 'listofbookstookbyUsers', component: BooksTookbyUsersComponent}
 ];
 
 @NgModule({
@@ -30,7 +36,9 @@ const appRoutes: Routes = [
     StoreComponent,
     StoreListComponent,
     HomeComponent,
-    BooksThumbViewComponent
+    BooksThumbViewComponent,
+    CartComponent,
+    BooksTookbyUsersComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +47,8 @@ const appRoutes: Routes = [
     AngularFirestoreModule,
     FormsModule,
     BrowserAnimationsModule,
+    Ng2SearchPipeModule,
+    Ng2OrderModule,
     ToastrModule.forRoot(),
     RouterModule.forRoot(appRoutes)
 

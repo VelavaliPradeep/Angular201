@@ -15,4 +15,5 @@ export class Cart {
     Author : string;
     Genre : string;
     NoofCopies : string;
+    TookDate : Date;
 }

@@ -1,0 +1,23 @@
+<br>
+<br>
+<h2>List of Books in the Library</h2>
+<table class="table table-hover">
+    <thead>
+        <th>Book Id</th>
+        <th>Book Name</th>
+        <th>Author</th>
+        <th>Genre</th>
+        <th>No of Copies</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let bk of list">
+            <td >{{bk.BookId}}</td>
+            <td>{{bk.BookName}}</td>
+            <td>{{bk.Author}}</td>
+            <td>{{bk.Genre}}</td>
+            <td>{{bk.NoofCopies}}</td>
+            <td><a class="btn btn-danger" (click)="onDelete(bk.id)"><i class="fa fa-trash"></i></a></td>
+        </tr>
+    </tbody>
+</table>
+

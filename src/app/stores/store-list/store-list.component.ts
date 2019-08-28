@@ -32,7 +32,7 @@ export class StoreListComponent implements OnInit {
   onDelete(id:string){
     if(confirm("Are you sure, you want to delete this record?")){
       this.firestore.doc('books/'+ id).delete();
-      this.toastr.warning('Deleted Successfully','Book to Store');
+      this.toastr.warning('Deleted Successfully','Book from Store');
     }
   }
 }

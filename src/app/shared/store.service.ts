@@ -14,4 +14,8 @@ export class StoreService {
   getBooks(){
     return this.firestore.collection('books').snapshotChanges();
   }
+
+  getCartBooks(){
+    return this.firestore.collection('cart').snapshotChanges();
+  }
 }
