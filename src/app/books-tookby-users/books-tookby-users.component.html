@@ -14,7 +14,8 @@
         <th (click)="sort('name')">Book Name<span class="glyphicon sort-icon" *ngIf="key =='name'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
         <th (click)="sort('name')">Author<span class="glyphicon sort-icon" *ngIf="key =='name'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
         <th (click)="sort('name')">Genre<span class="glyphicon sort-icon" *ngIf="key =='name'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
-        <th>Date</th>
+        <th>Took Date</th>
+        <th>Took By</th>
     </thead>
     <tbody>
         <tr *ngFor="let bk of list | orderBy: key : reverse | filter:filter; let BookName = index">
@@ -23,6 +24,7 @@
             <td>{{bk.Author}}</td>
             <td>{{bk.Genre}}</td>
             <td>{{bk.TookDate}}</td>
+            <td>{{bk.TookBy}}</td>
         </tr>
     </tbody>
 </table>

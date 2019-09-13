@@ -1,22 +1,28 @@
 <br>
 <br>
-<h2>List of Books in the Library</h2>
+<h2>List of Books in the cart</h2>
 <table class="table table-hover">
     <thead>
+        <tr>
+        <div>
         <th>Book Id</th>
         <th>Book Name</th>
         <th>Author</th>
         <th>Genre</th>
         <th>No of Copies</th>
+    </div>
+</tr>
     </thead>
     <tbody>
         <tr *ngFor="let bk of list">
+            <div *ngIf="userClaims.UserName === bk.TookBy">
             <td >{{bk.BookId}}</td>
             <td>{{bk.BookName}}</td>
             <td>{{bk.Author}}</td>
             <td>{{bk.Genre}}</td>
             <td>{{bk.NoofCopies}}</td>
             <td><a class="btn btn-danger" (click)="onDelete(bk.id)"><i class="fa fa-trash"></i></a></td>
+            </div>
         </tr>
     </tbody>
 </table>

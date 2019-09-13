@@ -4,16 +4,18 @@ export class Store {
     BookName : string;
     Author : string;
     Genre : string;
-    NoofCopies : string;
+    NoofCopies : number;
 }
 
 
 export class Cart {
-    id: string;
+    id:string;
+    id1: string;
     BookId : string;
     BookName : string;
     Author : string;
     Genre : string;
-    NoofCopies : string;
+    NoofCopies : number;
     TookDate : Date;
+    TookBy : string;
 }

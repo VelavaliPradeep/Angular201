@@ -3,6 +3,7 @@ import { Cart } from '../shared/store.model';
 import { StoreService } from '../shared/store.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastrService } from 'ngx-toastr';
+import { UserService } from '../shared/user.service';
 
 @Component({
   selector: 'app-cart',
@@ -12,16 +13,20 @@ import { ToastrService } from 'ngx-toastr';
 export class CartComponent implements OnInit {
 
   list: Cart[];
-  constructor(private service: StoreService, private firestore: AngularFirestore, private toastr: ToastrService) { }
+  userClaims: any;
+  constructor(private service: StoreService, private firestore: AngularFirestore, private toastr: ToastrService, private userService : UserService) { }
 
-  ngOnInit() {this.service.getCartBooks().subscribe(
+  ngOnInit() {
+    this.service.getCartBooks().subscribe(
     actionArray => {
       this.list = actionArray.map(item => {
         return {
           id: item.payload.doc.id,
           ...item.payload.doc.data()} as Cart
       })
-    }); 
+    }),
+    this.userService.getUserClaims().subscribe((data: any) => {
+      this.userClaims = data}); 
 }
 onDelete(id:string) {
   if(confirm("Are you sure, you want to delete this record?")){

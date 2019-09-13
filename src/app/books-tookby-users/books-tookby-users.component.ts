@@ -3,6 +3,7 @@ import { Cart } from '../shared/store.model';
 import { ToastrService } from 'ngx-toastr';
 import { StoreService } from '../shared/store.service';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { UserService } from '../shared/user.service';
 
 @Component({
   selector: 'app-books-tookby-users',
@@ -18,7 +19,7 @@ export class BooksTookbyUsersComponent implements OnInit {
     this.key = key;
     this.reverse = !this.reverse;
   }
-  constructor(private service: StoreService, private firestore: AngularFirestore, private toastr: ToastrService) { }
+  constructor(private service: StoreService, private firestore: AngularFirestore, private toastr: ToastrService,private userService : UserService) { }
 
   ngOnInit() {
     this.service.getCartBooks().subscribe(

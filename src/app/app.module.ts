@@ -5,6 +5,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { FormsModule } from '@angular/forms'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,13 +21,20 @@ import { CartComponent } from './cart/cart.component';
 import { BooksTookbyUsersComponent } from './books-tookby-users/books-tookby-users.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Ng2OrderModule } from 'ng2-order-pipe';
+import { SignUpComponent } from './user/sign-up/sign-up.component';
+import { UserService } from './shared/user.service';
+import { UserComponent } from './user/user.component';
+import { SignInComponent } from './user/sign-in/sign-in.component';
+import { AuthGuard } from './Auth/auth.guard';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'stock', component: StoresComponent },
+  { path: 'stock', component: StoresComponent},
   { path: 'books', component: BooksThumbViewComponent},
-  { path: 'cart', component: CartComponent},
-  { path: 'listofbookstookbyUsers', component: BooksTookbyUsersComponent}
+  { path: 'cart', component: CartComponent, canActivate:[AuthGuard]},
+  { path: 'listofbookstookbyUsers', component: BooksTookbyUsersComponent},
+  { path: 'signup', component: SignUpComponent},
+  { path: 'signin', component: SignInComponent}
 ];
 
 @NgModule({
@@ -38,7 +46,10 @@ const appRoutes: Routes = [
     HomeComponent,
     BooksThumbViewComponent,
     CartComponent,
-    BooksTookbyUsersComponent
+    BooksTookbyUsersComponent,
+    SignUpComponent,
+    UserComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
@@ -49,11 +60,12 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     Ng2SearchPipeModule,
     Ng2OrderModule,
+    HttpClientModule,
     ToastrModule.forRoot(),
     RouterModule.forRoot(appRoutes)
 
   ],
-  providers: [StoreService],
+  providers: [StoreService,UserService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

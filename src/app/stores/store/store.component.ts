@@ -26,7 +26,7 @@ export class StoreComponent implements OnInit {
       BookName: '',
       Author: '',
       Genre: '',
-      NoofCopies: '',
+      NoofCopies: null,
     }
   }
 
